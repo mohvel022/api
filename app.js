@@ -15,8 +15,8 @@ var club = require('./routes/club/club');
 var events = require('./routes/events/events');
 var autoIncrement = require('mongoose-auto-increment');
 
-
 mongoose.Promise = require('bluebird');
+
 var db = mongoose.connect('mongodb://admin:mohit@ds147799.mlab.com:47799/mohittestdb', function(err){
   if(err){
     console.log(err);
@@ -83,7 +83,7 @@ app.use('/', events);
 
 
 // Set Port
-app.set('port', (process.env.PORT || 80));
+app.set('port', (process.env.PORT || 3000 ));
 
 app.listen(app.get('port'), function(){
 	console.log('Server is open on port: '+ app.get('port'));
