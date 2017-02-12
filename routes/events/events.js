@@ -51,7 +51,7 @@ router.get('/events', function(req, res){
 
 router.get('/events/:id/:action', function(req, res){
     Event.find({
-        id : req.params.id
+        __id : req.params.id
     }, function(err, events){
         if (err){
             return res.send(err)
