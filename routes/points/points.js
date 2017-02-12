@@ -17,9 +17,21 @@ router.post('/points', function(req, res){
          newPoint.name      = req.body.name
          newPoint.xCords    = req.body.xCords
          newPoint.yCords    = req.body.yCords
+         newPoint.connectedPoints = []
+
+         for (var i = 0; i < req.body.connectedPoints.length; i++){
+             var obj = {
+                 id :  req.body.connectedPoints.id,
+                 distance : req.body.connectedPoints.distance
+             }
+            newPoint.connectedPoints.push(obj)
+         }
+
          //newPoint.connectedPoints = req.body.connectedPoints
          //console.log(typeof req.body.connectedPoints)
          console.log(req.body.connectedPoints)
+
+
          newPoint.save(function(err){
              if(err){
                  return res.send(err)
@@ -42,9 +54,8 @@ router.get('/points', function(req, res){
             return res.send(err)
         }
 
-        res.json(points);
-        console.log('query sent')
-        console.log(points)    
+        return res.json(points);
+
     }
 )});
 

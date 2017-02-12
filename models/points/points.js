@@ -5,7 +5,7 @@ autoIncrement.initialize(mongoose.connection)
 
 //Schema for the points
 var PointSchema = mongoose.Schema({
-    
+
     id : {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Point' 
@@ -19,7 +19,7 @@ var PointSchema = mongoose.Schema({
     yCords:{
         type : String
     }, 
-    connectedPoints:[{
+    connectedPoints: [{
         id : {
             type : mongoose.Schema.Types.ObjectId
         },
