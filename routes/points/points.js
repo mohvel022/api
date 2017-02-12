@@ -18,7 +18,7 @@ router.post('/points', function(req, res){
          newPoint.xCords = req.body.xCords
          newPoint.yCords = req.body.yCords
          newPoint.connectedPoints = req.body.connectedPoints
-         console.log(typeof req.body.connectedPoints)
+         console.log(req.body.connectedPoints)
 
          newPoint.save(function(err){
              if(err){
