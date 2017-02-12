@@ -23,8 +23,12 @@ router.post('/points', function(req, res){
              if(err){
                  // do error shit
                  console.log(err)
+                 return res.send('gg')
              }
          })
+     }
+     else {
+         return res.send('check the params fam')
      }
 });
 
