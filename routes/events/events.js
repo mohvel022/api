@@ -18,7 +18,7 @@ router.post('/events', function(req, res){
             newEvent.Club = req.body.Club
             newEvent.Date = req.body.Date
             newEvent.Time = req.body.Time
-            NewEvent.Room = req.body.Room
+            newEvent.Room = req.body.Room
             newEvent.Interested = 0;
             newEvent.Going = 0;
 	        newEvent.save(function(err){
