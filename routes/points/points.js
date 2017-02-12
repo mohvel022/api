@@ -17,9 +17,13 @@ router.post('/points', function(req, res){
          newPoint.name      = req.body.name
          newPoint.xCords    = req.body.xCords
          newPoint.yCords    = req.body.yCords
-         newPoint.connectedPoints = req.body.connectedPoints
-         
-         
+         var arr            = []
+         newPoint.connectedPoints = req.body.connectedPoints.forEach(function(point){
+            arr.push(point)
+            console.log(point)
+         })
+         console.log(typeof req.body.connectedPoints)
+
          newPoint.save(function(err){
              if(err){
                  return res.send(err)
@@ -29,8 +33,6 @@ router.post('/points', function(req, res){
              }
          })
      }
-    
-    
      else {
          return res.send('check the params fam')
      }
