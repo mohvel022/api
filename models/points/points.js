@@ -22,7 +22,7 @@ var PointSchema = mongoose.Schema({
     connectedPoints: [
         {
             id : {
-                type : mongoose.Schema.Types.ObjectId
+                type : Number
             },
             distance : {
                 type : Number
