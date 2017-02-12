@@ -22,9 +22,10 @@ router.post('/points', function(req, res){
 
          newPoint.save(function(err){
              if(err){
-                 // do error shit
-                 console.log(err)
-                 return res.send('gg')
+                 return res.send(err)
+             }
+             else {
+                 res.send('gg')
              }
          })
      }
