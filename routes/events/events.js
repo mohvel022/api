@@ -12,12 +12,13 @@ router.post('/events', function(req, res){
 
 
 
-    if (req.body.Name && req.body.Club && req.body.Date && req.body.Time){
+    if (req.body.Name && req.body.Club && req.body.Date && req.body.Time && req.body.Room){
             var newEvent = new Event
 	        newEvent.Name = req.body.Name
             newEvent.Club = req.body.Club
             newEvent.Date = req.body.Date
             newEvent.Time = req.body.Time
+            NewEvent.Room = req.body.Room
             newEvent.Interested = 0;
             newEvent.Going = 0;
 	        newEvent.save(function(err){
@@ -61,16 +62,16 @@ router.get('/events/:id/:action', function(req, res){
                 if (err){
                     return res.send(err)
                 }
-                return res.send('interested accepted')
+                return res.send(events.Interested)
             })
         }
         else if (req.params.action == "going" || req.params.action == "Going"){
-            events.Going = events.going + 1
+            events.Going = events.going + 1;
             events.save(function(err){
                 if (err){
                     return res.send(err)
                 }
-                return res.send('going accepted')                
+                return res.send(events.Going)                
             })
         }
 
