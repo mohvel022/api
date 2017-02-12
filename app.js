@@ -76,7 +76,9 @@ app.use(expressValidator({
 
 
 
-
+app.get('/', function(req, res){
+  res.send('welcome to our API FAMSSS')
+})
 app.use('/', points);
 app.use('/', club);
 app.use('/', events);
