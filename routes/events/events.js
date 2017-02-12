@@ -49,7 +49,7 @@ router.get('/events', function(req, res){
 
 
 
-router.get('/events/:id/:action', function(req, res){
+/*router.get('/events/:id/:action', function(req, res){
     Event.find({
         _id : req.params.id
     }, function(err, events){
@@ -78,6 +78,6 @@ router.get('/events/:id/:action', function(req, res){
     })
 
 })
-
+*/
 
 module.exports = router;
