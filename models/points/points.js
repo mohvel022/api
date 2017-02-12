@@ -19,14 +19,16 @@ var PointSchema = mongoose.Schema({
     yCords:{
         type : String
     }, 
-    connectedPoints: [{
-        id : {
-            type : mongoose.Schema.Types.ObjectId
-        },
-        distance:{
-            type : Number
+    connectedPoints: [
+        {
+            id : {
+                type : mongoose.Schema.Types.ObjectId
+            },
+            distance : {
+                type : Number
+            }
         }
-    }]
+    ]
 });
 PointSchema.plugin(autoIncrement.plugin, 'Point')
 var Point = module.exports = mongoose.model('Point', PointSchema);

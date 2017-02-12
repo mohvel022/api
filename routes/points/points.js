@@ -17,18 +17,13 @@ router.post('/points', function(req, res){
          newPoint.name      = req.body.name
          newPoint.xCords    = req.body.xCords
          newPoint.yCords    = req.body.yCords
-         newPoint.connectedPoints = []
+         //newPoint.connectedPoints = []
 
          req.body.connectedPoints.forEach(function(point){
              console.log(point)
              newPoint.connectedPoints.push(point)
          })
 
-   
-
-         //newPoint.connectedPoints = req.body.connectedPoints
-         //console.log(typeof req.body.connectedPoints)
-         console.log(req.body.connectedPoints)
 
 
          newPoint.save(function(err){
