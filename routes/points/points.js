@@ -11,10 +11,10 @@ var Point = require('../../models/points/points');
 
 router.post('/points', function(req, res){
 
-    if (req.body.id && req.body.xCords && req.body.yCords && req.body.connectedPoints){
+    if (req.body.name && req.body.xCords && req.body.yCords && req.body.connectedPoints){
         
          var newPoint = new Point;
-         newPoint.id = identification;
+         newPoint.name = req.body.name
          newPoint.xCords = req.body.xCords
          newPoint.yCords = req.body.yCords
          newPoint.connectedPoints = req.body.connectedPoints
