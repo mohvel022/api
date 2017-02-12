@@ -5,29 +5,28 @@ autoIncrement.initialize(mongoose.connection)
 
 //Schema for the points
 var PointSchema = mongoose.Schema({
-    Point : {
+    
+    id : {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Point' 
+    },
+    name : {
+        type: String
+    },
+    xCords: {
+        type: String
+    },
+    yCords:{
+        type : String
+    }, 
+    connectedPoints:[{
         id : {
-            type: mongoose.Schema.Types.ObjectId,
-            ref: 'Point' 
+            type : mongoose.Schema.Types.ObjectId
         },
-        name : {
-            type: String
-        },
-        xCords: {
-            type: String
-        },
-        yCords:{
-            type : String
-        }, 
-        connectedPoints:[{
-            id : {
-                type : mongoose.Schema.Types.ObjectId
-            },
-            distance:{
-                type : Number
-            }
-        }]
-    }
+        distance:{
+            type : Number
+        }
+    }]
 });
 PointSchema.plugin(autoIncrement.plugin, 'Point')
 var Point = module.exports = mongoose.model('Point', PointSchema);
