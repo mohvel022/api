@@ -19,13 +19,12 @@ router.post('/points', function(req, res){
          newPoint.yCords    = req.body.yCords
          newPoint.connectedPoints = []
 
-         for (var i = 0; i < req.body.connectedPoints.length; i++){
-             var obj = {
-                 id :  req.body.connectedPoints.id,
-                 distance : req.body.connectedPoints.distance
-             }
-            newPoint.connectedPoints.push(obj)
-         }
+         req.body.connectedPoints.forEach(function(point){
+             console.log(point)
+             newPoint.connectedPoints.push(point)
+         })
+
+   
 
          //newPoint.connectedPoints = req.body.connectedPoints
          //console.log(typeof req.body.connectedPoints)
